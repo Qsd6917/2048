@@ -29,6 +29,16 @@ gem install sass -v 3.2.19
 sass _3.2.19_ --no-cache --unix-newlines style/main.scss style/main.css
 ```
 
+## 安卓版汉化补丁
+
+`android/` 存放 Solebon 安卓版 `5.2-play`（构建号 212）的简体中文补丁。它为游戏界面、菜单和确认框添加简体中文，跟随手机系统语言。使用前需持有可授权修改的原包，并准备 Python 3.11 或以上版本。补丁会校验原包的 SHA-256 并生成单独的未签名 APK，之后可用 Android SDK 的 `zipalign` 和 `apksigner` 对齐、签名和验证。
+
+```sh
+python android/patch.py base.apk 2048-zh-unsigned.apk
+```
+
+本地签名的汉化版无法覆盖 Google Play 版，卸载原应用可能清除本地存档。仓库仅提供汉化脚本，原应用的权利归 Solebon 所有。
+
 ## 来源与许可
 
 项目基于 Gabriele Cirulli 的 [2048 原仓库](https://github.com/gabrielecirulli/2048)。原作基于 Veewo Studio 的《1024》，玩法受到 Asher Vollmer 的《Threes》启发。版权归属与授权条款见 [MIT 许可证](LICENSE.txt)。
